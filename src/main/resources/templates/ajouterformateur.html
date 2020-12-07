@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{template}">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Votre Formation</title>
+</head>
+
+<body>
+	<div layout:fragment="contents">
+		<div class="row mt-2 ml-1 mr-1">
+			<div class="col-1"></div>
+			<div class="col-10">
+				<div class="card  border-info">
+					<div class="card-header badge badge-info text-wrap">
+						<h6>Ajouter Formateur</h6>
+					</div>
+					<div class="card-body">
+						<form th:object="${formFormateur}" th:action="@{/ajouterformateur}" method="post">
+							<div class="form-group row"><label class="col-sm-2 col-form-label"> Nom:</label>
+								<div class="col-sm-10">
+									<input type="text" th:field="*{nom}" class="form-control" placeholder="nom" />
+									<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}"></div>
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-sm-2 col-form-label"> Prénom:</label>
+								<div class="col-sm-10">
+										<input type="text" th:field="*{prenom}" class="form-control" placeholder="prenom" />
+										<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('prenom')}" th:errors="*{prenom}">
+
+										</div>
+									</div>
+								</div>
+						<div class="col-sm-12"><button class="btn btn-primary" type="submit">Ajouter</button></div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="col-1"></div>
+	</div>
+	</div>
+</body>
+
+</html>
